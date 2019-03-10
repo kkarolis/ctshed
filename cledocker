@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+docker run \
+    --user="$UID" \
+    --rm \
+    -v "/home:/home" \
+    mawk $@
