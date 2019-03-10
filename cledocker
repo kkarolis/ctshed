@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 
 docker run \
-    --user="$UID" \
     --rm \
+    --user="$UID" \
+    --workdir "$PWD" \
+    -a stdin -a stdout -a stderr \
+    -i \
     -v "/home:/home" \
-    mawk $@
+    mawk "$@"
