@@ -1,12 +1,8 @@
 """Utilities to work with generating/building docker images."""
 
-import dataclasses
-import subprocess
 import os
 
 import jinja2
-
-from typing import List
 
 from . import constants
 from . import utils
@@ -34,21 +30,17 @@ def get_new_container_image_name(namespace):
 
 
 # FIXME add typing
-def build_image(image_name, docker_options):
+# FIXME add logging
+def build_image(options):
     """Create a Docker image from new scratch file."""
+    image_name = options.image_name
     with utils.NamedTemporaryDir() as tmp_dir:
         with open(os.path.join(tmp_dir, 'Dockerfile'), 'w+b') as handle:
-            content = DOCKERFILE.render(options=docker_options)
+            content = DOCKERFILE.render(options=options)
             handle.write(content.encode(constants.FILE_ENCODING))
 
-        subprocess.call(['docker', 'build', '-t', image_name, tmp_dir])
+        # FIXME use distutils to check for the executable
+        utils.run_docker_build(image_name, tmp_dir)
 
     # FIXME ability to retry ?
     return image_name
-
-
-@dataclasses.dataclass
-class DockerImageOptions:
-    cmd: str
-    source_image: str = 'debian:stable'
-    packages: List[str] = dataclasses.field(default_factory=list)

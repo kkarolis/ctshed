@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 cledocker = {editable = true,path = "."}
 jinja2 = "*"
+mock = "*"
 
 [requires]
 python_version = "3.7"

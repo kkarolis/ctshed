@@ -11,6 +11,7 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+# FIXME add mock,unittest to test requires
 setup(
     name='cledocker',
     description='A Docker based CLI Tools manager.',

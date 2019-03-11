@@ -4,7 +4,7 @@ import sys
 
 
 from . import cledocker
-from . import container
+from .utils import get_tool_options
 
 
 @click.group()
@@ -19,12 +19,7 @@ def main():
 @click.option('--packages')
 def install(namespace, **cli_options):
     # FIXME error handling
-    packages = cli_options['packages']
-    image_options = container.DockerImageOptions(
-        source_image=cli_options['source'],
-        packages=packages.split(',') if packages else [],
-        cmd=cli_options['cmd'],
-    )
+    image_options = get_tool_options(cli_options)
     click.secho(f'running install for namespace {namespace}', fg='green')
     executable_name = cledocker.install(namespace, image_options)
     click.secho(f'executable created at {executable_name}', fg='green')
