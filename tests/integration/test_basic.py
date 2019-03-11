@@ -39,6 +39,7 @@ class TestBasic(unittest.TestCase):
         cli_options = {
             'cmd': 'curl',
             'packages': 'curl',
+            'path': self.tmp_dir,
         }
         namespace = random_namespace()
         options = get_tool_options(namespace, cli_options)
