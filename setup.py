@@ -21,6 +21,7 @@ setup(
         'Click',
         'sh',
         'slugify',
+        'jinja2',
     ],
     packages=find_packages(include=['cledocker'], exclude=['contrib', 'docs', 'tests']),
     classifiers=[

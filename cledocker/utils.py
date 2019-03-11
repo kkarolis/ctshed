@@ -6,7 +6,7 @@ import shutil
 
 
 def get_new_executable_name(install_name):
-    return f'docker-{install_name}'
+    return f'cledocker-{install_name}'
 
 
 @contextlib.contextmanager

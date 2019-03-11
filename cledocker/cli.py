@@ -4,6 +4,7 @@ import sys
 
 
 from . import cledocker
+from . import container
 
 
 @click.group()
@@ -12,12 +13,20 @@ def main():
 
 
 @click.command()
-@click.argument('package')
+@click.argument('namespace')
 @click.option('--source', default='debian:stable')
-def install(package, source):
+@click.option('--cmd')
+@click.option('--packages')
+def install(namespace, **cli_options):
     # FIXME error handling
-    click.secho('running install {}'.format(package), fg='green')
-    executable_name = cledocker.install(package, source)
+    packages = cli_options['packages']
+    image_options = container.DockerImageOptions(
+        source_image=cli_options['source'],
+        packages=packages.split(',') if packages else [],
+        cmd=cli_options['cmd'],
+    )
+    click.secho(f'running install for namespace {namespace}', fg='green')
+    executable_name = cledocker.install(namespace, image_options)
     click.secho(f'executable created at {executable_name}', fg='green')
 
 
