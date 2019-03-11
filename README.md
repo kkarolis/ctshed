@@ -23,6 +23,22 @@ cledocker-myblast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
 cledocker-myblast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 ```
 
+Installation
+------------
+
+The tool places binaries to `~/bin` directory blindly without checking if it
+exists or if theres a nameclash. Make sure `~/bin` exists in your path. E.g.
+place something like this in `~/.bash_rc`:
+
+```sh
+#~/.bash_rc file
+export PATH="$HOME/bin:$PATH"
+```
+
+The tool depends on `docker` binary existing on the host system. You have to
+install it if you don't have it. Installation of docker on `ubuntu` systems is described [docker-ce/ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
+
 Features
 --------
 
@@ -35,11 +51,15 @@ Principles of working
 
 1. An image is created during the install step and some name is automatically given to it.
 2. An executable is created in executable directory of the users workspace.
-3. Executable contains a container run command with stdin/stdout/stderr attached which would
+3. Executable contains a container run command with stdin/stdout/stderr
+   attached and /home directory mounted.
 
 
 Limitations
 -----------
 
 There are limitations with using container as a wrapper for command line.
-Configuration might not be picked up by the tool. More will come. 
+* Configuration might not be picked up by the tool.
+* Input/Output works correctly only under /home directory
+* Security, because /home is mounted
+* More will come. 
