@@ -7,13 +7,13 @@ from . import constants
 EXETEMPLATE = """
 #!/usr/bin/env sh
 
-docker run \
-    --rm \
-    --user="$UID" \
-    --workdir "$PWD" \
-    -a stdin -a stdout -a stderr \
-    -i \
-    -v "/home:/home" \
+docker run \\
+    --rm \\
+    --user="$UID" \\
+    --workdir "$PWD" \\
+    -a stdin -a stdout -a stderr \\
+    -i \\
+    -v "/home:/home" \\
     {options.image_name} "$@"
 """
 
