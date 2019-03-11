@@ -16,7 +16,8 @@ def main():
 def install(package):
     # FIXME error handling
     click.secho('running install {}'.format(package), fg='green')
-    cledocker.install(package)
+    executable_name = cledocker.install(package)
+    click.secho(f'executable created at {executable_name}', fg='green')
 
 
 main.add_command(install)
