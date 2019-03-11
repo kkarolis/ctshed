@@ -9,7 +9,7 @@ Example
 -------
 
 ```sh
-# a single tool executable
+# a single tool executable, debian:stable implicit source
 cledocker install --packages=curl --cmd=curl mycurl
 # downloads the P04156.fasta file and saves it in the current directory
 cledocker-mycurl -LO https://www.uniprot.org/uniprot/P04156.fasta
