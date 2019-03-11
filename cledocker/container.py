@@ -9,12 +9,13 @@ from . import utils
 
 
 DOCKERFILE = """
-FROM debian:stable
-RUN apt-get update && apt-get -y -q install \
-        {options.package} \
-    && rm -rf /var/lib/apt/lists/*
+FROM {options.source_image}
 """
 
+# FIXME in some images this will not work, optional ?
+# RUN apt-get update && apt-get -y -q install \
+#         {options.package} \
+#     && rm -rf /var/lib/apt/lists/*
 
 # FIXME slugify name
 def get_new_container_image_name(options):
@@ -29,7 +30,6 @@ def build(docker_options):
             content = DOCKERFILE.format(options=docker_options)
             handle.write(content.encode(constants.FILE_ENCODING))
 
-
         image_name = get_new_container_image_name(docker_options)
         subprocess.call(['docker', 'build', '-t', image_name, tmp_dir])
 
@@ -38,5 +38,6 @@ def build(docker_options):
 
 
 @dataclasses.dataclass
-class DocerImageOptions:
+class DockerImageOptions:
     package: str
+    source_image: str = 'debian:stable'

@@ -5,10 +5,13 @@ from . import executable
 
 
 # FIXME add types
-def install(package_name):
+def install(package_name, source):
     """Do whatever needs to be done to create a new executable."""
     # build the image
-    docker_options = container.DocerImageOptions(package=package_name)
+    docker_options = container.DockerImageOptions(
+        package=package_name,
+        source_image=source,
+    )
     image_name = container.build(docker_options)
 
     # make the executable
