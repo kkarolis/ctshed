@@ -54,6 +54,12 @@ Principles of working
 3. Executable contains a container run command with stdin/stdout/stderr
    attached and /home directory mounted.
 
+Testing
+-------
+
+```sh
+python -m unittest discover tests
+```
 
 Limitations
 -----------
