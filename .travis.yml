@@ -4,8 +4,9 @@ matrix:
     - python: 3.7
       dist: xenial
       sudo: true
-      env: $COVPYYAML=cov41-pyyaml,coveralls41
 install:
-  - pip install tox
+  - pip install coveralls
 script:
-  - tox -e $(echo py$TRAVIS_PYTHON_VERSION | tr -d . | sed -e 's/pypypy/pypy/')-$COVPYYAML
+  - coverage run --source=ctshed setup.py test
+after_success:
+  - coveralls
