@@ -24,11 +24,6 @@ CMD ["{{options.cmd}}"]
 """)
 
 
-# FIXME slugify name
-def get_new_container_image_name(namespace):
-    return f'{constants.PACKAGE_NAME}-{namespace}'
-
-
 # FIXME add typing
 # FIXME add logging
 def build_image(options):

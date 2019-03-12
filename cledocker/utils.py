@@ -10,9 +10,10 @@ from . import constants
 
 
 def _get_new_executable_name(namespace):
-    return f'cledocker-{namespace}'
+    return f'{constants.PACKAGE_NAME}-{namespace}'
 
 
+# FIXME slugify name
 def _get_new_image_name(namespace):
     return f'{constants.PACKAGE_NAME}-{namespace}'
 
