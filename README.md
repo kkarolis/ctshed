@@ -2,6 +2,8 @@ Ctshed - Container Toolshed
 ===========================
 ![Travis (.org)](https://img.shields.io/travis/kkarolis/ctshed.svg)
 ![Coveralls github](https://img.shields.io/coveralls/github/kkarolis/ctshed.svg)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ctshed.svg)
+![PyPI](https://img.shields.io/pypi/v/ctshed.svg)
 ![GitHub](https://img.shields.io/github/license/kkarolis/ctshed.svg)
 [![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 
@@ -31,6 +33,9 @@ ctshed-myblast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out resul
 
 Installation
 ------------
+```sh
+pip install ctshed
+```
 
 The tool places binaries to `~/bin` directory blindly without checking if it
 exists or if theres a nameclash. Make sure `~/bin` exists in your path. E.g.
