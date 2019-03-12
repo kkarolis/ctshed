@@ -17,14 +17,19 @@ setup(
     description='A Docker based CLI Tools manager.',
     long_description=long_description,
     use_scm_version=True,
-    setup_requires=['setuptools_scm'],
+    setup_requires=[
+        'setuptools_scm',
+        'pytest-runner',
+    ],
     install_requires=[
         'Click',
-        'sh',
-        'slugify',
         'jinja2',
     ],
-    packages=find_packages(include=['cledocker'], exclude=['contrib', 'docs', 'tests']),
+    tests_require=[
+        'pytest',
+        'mock'
+    ],
+    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     classifiers=[
          'Development Status :: 3 - Alpha',
          'Intended Audience :: Developers',
