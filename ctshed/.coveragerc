@@ -1,0 +1,6 @@
+[report]
+show_missing = True
+exclude_lines =
+    pragma: nocover
+omit =
+    ctshed/cli.py
