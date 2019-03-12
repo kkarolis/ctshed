@@ -1,6 +1,7 @@
 Ctshed - Container Toolshed
 ===========================
 ![Travis (.org)](https://img.shields.io/travis/kkarolis/ctshed.svg)
+![Coveralls github](https://img.shields.io/coveralls/github/kkarolis/ctshed.svg)
 ![GitHub](https://img.shields.io/github/license/kkarolis/ctshed.svg)
 [![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 

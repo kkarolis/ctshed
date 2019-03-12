@@ -19,7 +19,9 @@ def _get_new_image_name(namespace):
 
 
 def run_docker_build(image_name, build_context_dir):
-    subprocess.call(['docker', 'build', '-t', image_name, build_context_dir])
+    subprocess.call([  # pragma: nocover
+        'docker', 'build', '-t', image_name, build_context_dir]
+    )
 
 
 def _default(value, default):
