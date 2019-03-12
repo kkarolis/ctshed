@@ -27,7 +27,8 @@ setup(
     ],
     tests_require=[
         'pytest',
-        'mock'
+        'mock',
+        'coveralls',
     ],
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     classifiers=[

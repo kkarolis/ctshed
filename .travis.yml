@@ -1,6 +1,8 @@
 language: python
 script:
   - python setup.py test
+after_success:
+  - coveralls
 matrix:
   include:
     - python: 3.7
