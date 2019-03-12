@@ -1,9 +1,9 @@
-"""CLI interface to cledocker."""
+"""CLI interface to ctshed."""
 import click
 import sys
 
 
-from . import cledocker
+from . import ctshed
 from .utils import get_tool_options
 
 
@@ -21,7 +21,7 @@ def install(namespace, **cli_options):
     # FIXME error handling
     image_options = get_tool_options(cli_options)
     click.secho(f'running install for namespace {namespace}', fg='green')
-    executable_name = cledocker.install(namespace, image_options)
+    executable_name = ctshed.install(namespace, image_options)
     click.secho(f'executable created at {executable_name}', fg='green')
 
 

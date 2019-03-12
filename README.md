@@ -1,26 +1,27 @@
-Cledocker
-========
+Ctshed
+======
 
-A CLI tool manager for creating container centric namespaces with specific
-tools installed. This could possibly help to easier manage cli tools for users
-(multiple tool versions, no screw-up with os level package executables)
+Container Toolshed. A CLI tool manager for creating container centric
+namespaces with specific tools installed. This could possibly help to easier
+manage cli tools for users (multiple tool versions, no screw-up with os level
+package executables)
 
 Example
 -------
 
 ```sh
 # a single tool executable, debian:stable implicit source
-cledocker install --packages=curl --cmd=curl mycurl
+ctshed install --packages=curl --cmd=curl mycurl
 # downloads the P04156.fasta file and saves it in the current directory
-cledocker-mycurl -LO https://www.uniprot.org/uniprot/P04156.fasta
+ctshed-mycurl -LO https://www.uniprot.org/uniprot/P04156.fasta
 
 # a tool namespace 
-cledocker install --source=biocontainers/blast:2.2.31 myblast
-cledocker-myblast curl -LO https://www.uniprot.org/uniprot/P04156.fasta
-cledocker-myblast curl -LO ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-cledocker-myblast gunzip zebrafish.1.protein.faa.gz
-cledocker-myblast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
-cledocker-myblast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
+ctshed install --source=biocontainers/blast:2.2.31 myblast
+ctshed-myblast curl -LO https://www.uniprot.org/uniprot/P04156.fasta
+ctshed-myblast curl -LO ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
+ctshed-myblast gunzip zebrafish.1.protein.faa.gz
+ctshed-myblast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
+ctshed-myblast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 ```
 
 Installation

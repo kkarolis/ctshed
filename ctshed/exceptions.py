@@ -1,5 +1,5 @@
 """Main exceptions of the tool."""
 
 
-class CLEDockerException(Exception):
+class CTShedException(Exception):
     pass

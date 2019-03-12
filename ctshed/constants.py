@@ -1,5 +1,5 @@
 # FIXME make dynamic
-PACKAGE_NAME = 'cledocker'
+PACKAGE_NAME = 'ctshed'
 FILE_ENCODING = 'utf-8'
 
 DEFAULT_IMAGE = 'debian:stable'

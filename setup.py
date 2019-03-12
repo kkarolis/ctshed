@@ -1,6 +1,6 @@
 """A Docker based CLI Tools manager.
 
-See: https://github.com/kkarolis/cledocker
+See: https://github.com/kkarolis/ctshed
 """
 
 from setuptools import setup, find_packages
@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 # FIXME add mock,unittest to test requires
 setup(
-    name='cledocker',
+    name='ctshed',
     description='A Docker based CLI Tools manager.',
     long_description=long_description,
     use_scm_version=True,
@@ -38,8 +38,8 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'cledocker=cledocker.cli:main'
+            'ctshed=ctshed.cli:main'
         ]
     },
-    url='https://github.com/kkarolis/cledocker',
+    url='https://github.com/kkarolis/ctshed',
 )

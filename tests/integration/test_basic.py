@@ -6,7 +6,7 @@ import shutil
 import os
 import mock
 
-from cledocker import get_tool_options, install
+from ctshed import get_tool_options, install
 
 
 def random_namespace():
@@ -20,7 +20,7 @@ class TestBasic(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.tmp_dir)
 
-    @mock.patch('cledocker.utils.run_docker_build')
+    @mock.patch('ctshed.utils.run_docker_build')
     def test_tool_namespace(self, docker_build):
         cli_options = {
             'source': 'biocontainers/blast:2.2.31',
@@ -34,7 +34,7 @@ class TestBasic(unittest.TestCase):
         self.assertTrue(docker_build.called)
         self.assertTrue(os.path.exists(executable_path))
 
-    @mock.patch('cledocker.utils.run_docker_build')
+    @mock.patch('ctshed.utils.run_docker_build')
     def test_cmd_namespace(self, docker_build):
         cli_options = {
             'cmd': 'curl',
