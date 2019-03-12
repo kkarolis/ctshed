@@ -19,9 +19,9 @@ def main():
 @click.option('--packages')
 def install(namespace, **cli_options):
     # FIXME error handling
-    image_options = get_tool_options(cli_options)
+    options = get_tool_options(namespace, cli_options)
     click.secho(f'running install for namespace {namespace}', fg='green')
-    executable_name = ctshed.install(namespace, image_options)
+    executable_name = ctshed.install(namespace, options)
     click.secho(f'executable created at {executable_name}', fg='green')
 
 
